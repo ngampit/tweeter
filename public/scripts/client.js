@@ -45,37 +45,44 @@
 //     "created_at": 1461113959088
 //   }
 // ]
+// sort output by descending order
 
-const createTweetElement = function (tweetData) {
-  const dateCreate = tweetData.created_at;
-  const Diff = Date.now() - dateCreate
-  const dateDiff = Math.round(Diff /  86400000)
-  let tweet = `<article class = "tweet-header">
-   <div class = "head-tweet-line">
-   <h5><span><img class = "avatar" src= ${tweetData.user.avatars}></span>${tweetData.user.name}</h5>
-   <h5 class="hide">${tweetData.user.handle}</h5>
-    </div>
-     <p id = "tweet-content">${tweetData.content.text}</p>
-    </div>
-     <hr id = "hr">
-    <div class = "tweet-footer">
-     <h6>${dateDiff}<span>  days ago</span></h6>
-     <img class = "tweet-logo" src="/images/retweet.jpeg" 
-   </article>`
 
-  return tweet;
 
-}
 
 //console.log(createTweetElement(tweetData));
 $(document).ready(function () {
+
+  const createTweetElement = function (tweetData) {
+    const dateCreate = tweetData.created_at;
+    const Diff = Date.now() - dateCreate
+    const dateDiff = Math.round(Diff /  86400000)
+    let tweet = `<article class = "tweet-header">
+     <div class = "head-tweet-line">
+     <h5><span><img class = "avatar" src= ${tweetData.user.avatars}></span>${tweetData.user.name}</h5>
+     <h5 class="hide">${tweetData.user.handle}</h5>
+      </div>
+       <p id = "tweet-content">${tweetData.content.text}</p>
+      </div>
+       <hr id = "hr">
+      <div class = "tweet-footer">
+       <h6>${dateDiff}<span>  days ago</span></h6>
+       <img class = "tweet-logo" src="/images/retweet.jpeg" 
+     </article>`
+  
+    return tweet;
+  
+  }
+
+
+
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    for (tweet1 of tweets) {
+    for (let tweet1 of tweets) {
       let tweetOutput = createTweetElement(tweet1);
-      $('.tweets-container').append(tweetOutput);
+      $('.tweets-container').prepend(tweetOutput);
     }
   };
   const $tweetForm = $('#tweet-form');
@@ -85,29 +92,44 @@ $(document).ready(function () {
   
     submitEvent.preventDefault();
     const serializedTweetFormData = $(this).serialize(); 
-  $("#tweet-form")[0].reset();
+
+  
     
-    return $.ajax({
+    $.ajax({
       type: 'POST',
-      url: 'http://localhost:8080/tweets/',
+      url: 'http://localhost:8080/tweets',
       data: serializedTweetFormData
-    }).then((updatedTweetsJSON) => console.log(updatedTweetsJSON)).catch((retrievedServerError) => {
+    }).then(() => {
+       $.ajax({
+       type: "GET",
+       url:'http://localhost:8080/tweets',
+      }).then((response) => renderTweets([response[response.length -1]]));
+      $("#tweet-form")[0].reset();
+      $('.counter').html(140);
+      })
+      .catch((retrievedServerError) => {
       alert(`Sending tweet with text ${serializedTweetFormData} failed!  Got Error ${retrievedServerError.statusCode}`);
     });
     
   });
 
-
-  $.ajax({
+  const loadTweet = function () {
+    console.log('load tweet is running');
+    $.ajax({
     type: "GET",
     url:'http://localhost:8080/tweets',
-}).then((response) => renderTweets(sortJsonAscending(response)));
+   }).then((response) => renderTweets(response));
+
+  }
+  loadTweet();
+
+  // const  sortJsonAscending = function(response) {
+  //   return response.sort((a, b) => parseFloat(b.created_at) - parseFloat(a.created_at));
+  // }
+
 });
 
-// sort output by descending order
-const  sortJsonAscending = function(response) {
-  return response.sort((a, b) => parseFloat(b.created_at) - parseFloat(a.created_at));
-}
+
 
 
 
