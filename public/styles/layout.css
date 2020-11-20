@@ -17,9 +17,74 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  font-size: 17px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.container {
+  background-color: #f4f1ec ;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
+    (keep it for nav)
  */
+ /* Tablet Styles */
+@media only screen and (min-width: 768px) {
+  body header {
+    width: 100%;
+  }
+
+  body header .avatar {
+    width: 50%;
+    margin-top: 100pt;
+  }
+
+  body header #name {
+    width: 30%;
+  }
+
+  body .container .tweet-container{
+    width: 80%;
+    margin-top: 0pt;
+  }
+
+  body  #topnav {
+    background-color: #338c00 ;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+  body header {
+    width: 33.3%;
+    float: left;
+    margin-top: 150pt;
+    margin-left: 25pt;
+  }
+
+  body header .avatar {
+    width: 60%;
+  }
+
+  body header #name {
+    width: 50%;
+    font-size: smaller;
+  }
+
+  body #topnav {
+    background-color: #4056A1 ;
+  }
+
+
+  body .container .new-tweet{
+    margin-top: 100pt;
+    width: 60%;
+    float: right;
+  }
+}

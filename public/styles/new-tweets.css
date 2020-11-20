@@ -1,0 +1,48 @@
+#tweet-form {
+    background-color: transparent;
+}
+
+footer {
+    display : flex;
+    flex-direction: column;
+}
+
+
+#tweet-text {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+#submit {
+    background-color: #4056A1;
+    font-family: 'Bungee', cursive;
+    color: #ffffff;
+}
+
+
+#hr {
+    height : 3px;
+    background-color: black;
+    border: black;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.counter.red {
+    color: red;
+}
+
+.tweet-logo {
+    width : 10%;
+}

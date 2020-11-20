@@ -1,0 +1,24 @@
+#topnav {
+  /* Add a black background color to the top navigation */
+    height : 120px;
+    color : #FFFFFF;
+    background-color : #4056A1;
+    padding-top: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 1.5em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;    
+}
+
+#spannav {
+   font-family: 'Bungee', cursive;
+}
+
+#spannav2 {
+  font-family: 'Source Sans Pro';
+  font-size: 15pt;
+}
