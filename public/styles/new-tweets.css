@@ -43,3 +43,7 @@ footer {
     color: red;
 }
 
+#tweet-content {
+    overflow-wrap: break-word;
+}
+

@@ -110,7 +110,7 @@ $(document).ready(function () {
       $('.hide-err').slideUp("normal");
       })
       .catch((retrievedServerError) => {
-      alert(`Sending tweet with text ${serializedTweetFormData} failed!  Got Error ${retrievedServerError.statusCode}`);
+      alert(`Can't submit an empty Tweet! `);
     });
     
   });

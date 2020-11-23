@@ -13,17 +13,17 @@
 }
 
 
-.hide {
-    display: none;
-    margin-left: 60%;
-  }
-      
-.tweets-container:hover  .hide {
-    display: block;
-    color: rgb(66, 66, 143);
-}
 
 .hide-err {
+  display: none;
+  margin:auto;
+  color: red;
+  border: 3px dotted red;
+  margin-left: 30pt ;
+  font-size: x-large;
+}
+
+.hide-err1 {
   display: none;
   margin:auto;
   color: red;
@@ -67,4 +67,15 @@
 .tweet-header:hover  .tweet-logo {
   display: block;
   color: blue;
+}
+
+
+.hide {
+  display: none;
+  margin-left: 60%;
+}
+    
+.tweet-header:hover  .hide {
+  display: block;
+  color: rgb(66, 66, 143);
 }

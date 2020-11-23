@@ -64,10 +64,11 @@
       <section class="new-tweet">
         <footer>
          <h5 class = "hide-err">error! text over 140 characters</h5>
+         <h5 class = "hide-err1">error! please write your tweet!</h5>
          <p>What are you humming about?</p>
          <form  id = "tweet-form" action = "/tweets" method = "POST">
           <label for="tweet-text"> </label>
-          <input id="tweet-text" name="text"  maxlength="200" size = "80" required></textarea>
+          <textarea id="tweet-text" name="text"  maxlength="200" size = "80"></textarea>
          <hr id = "hr">
          <div class = "footer-container">
           <button id="submit" type="submit">Tweet</button>

@@ -15,7 +15,12 @@ const logger = function() {
     $('.counter').html(leftText);
     $('.counter').addClass("red");
   }
-  else { $('.counter').removeClass("red"); }
+  else { $('.counter').removeClass("red"); 
+         $('.hide-err').slideUp('normal')
+         $('#tweet-form').unbind('click');
+       }
+
+
 }
     $('#tweet-text').on('input',logger);
 });
