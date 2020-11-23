@@ -11,12 +11,14 @@ header {
 .avatar {
     background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
     width: 5em;
+    margin-left: 50pt;
 }
 
 #name {
     color: #ffffff;
     font-size: 15pt;
     font-family: 'Source Sans Pro';
+    margin-left: 5rem;
 }
 
 
