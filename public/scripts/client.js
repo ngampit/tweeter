@@ -106,6 +106,8 @@ $(document).ready(function () {
       }).then((response) => renderTweets([response[response.length -1]]));
       $("#tweet-form")[0].reset();
       $('.counter').html(140);
+      $('.counter').removeClass("red");
+      $('.hide-err').slideUp("normal");
       })
       .catch((retrievedServerError) => {
       alert(`Sending tweet with text ${serializedTweetFormData} failed!  Got Error ${retrievedServerError.statusCode}`);
