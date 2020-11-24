@@ -20,7 +20,18 @@ const logger = function() {
          $('#tweet-form').unbind('click');
        }
 
-
+  if (leftText = 140) {
+    $( "#tweet-form" ).click(function( event ) {
+        $('.hide-err1').slideDown('show()');
+    }); 
+    $('#tweet-form').click(function(e) {
+        e.preventDefault();
+    });
+  }
+  else {
+    $('.hide-err').slideUp('normal')
+    $('#tweet-form').unbind('click');
+  }
 }
     $('#tweet-text').on('input',logger);
 });

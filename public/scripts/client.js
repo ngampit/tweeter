@@ -110,7 +110,7 @@ $(document).ready(function () {
       $('.hide-err').slideUp("normal");
       })
       .catch((retrievedServerError) => {
-      alert(`Can't submit an empty Tweet! `);
+      alert(`Can't Submit with Empty Tweet`);
     });
     
   });
